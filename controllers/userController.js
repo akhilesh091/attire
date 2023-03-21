@@ -354,7 +354,7 @@ const shop=async(req,res)=>{
                 if(tf){
                 res.json({products: productData,pageCount,page})
                 }else{
-                res.render('shop', { user: userData, products: productData, category: categoryData, val: search, selected: category, order: sort, limit: limit,pageCount,page, head: 2 })
+                res.render('Shop', { user: userData, products: productData, category: categoryData, val: search, selected: category, order: sort, limit: limit,pageCount,page, head: 2 })
                 }
             } catch (error) {
                 console.log(error.message);
