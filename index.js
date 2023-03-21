@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/attireCloting");
+// mongoose.connect("mongodb://127.0.0.1:27017/attireCloting");
+mongoose.connect("mongodb+srv://akhilesh:Evergreen@cluster0.y3zibe2.mongodb.net/attireClothing");
+
 const nocache = require("nocache");
 
 const express = require("express");

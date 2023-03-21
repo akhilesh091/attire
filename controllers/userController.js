@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 const sms=require('../middleware/sms')
 const { render } = require('../routes/userRoute');
 require ('dotenv').config();
-const puppeteer=require('puppeteer')
+
 const RazorPay=require('razorpay')
 const path=require('path')
 
