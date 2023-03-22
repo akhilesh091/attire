@@ -18,8 +18,6 @@ const isLogout = async (req, res, next) => {
     try {
         if (req.session.admin_id) {
             res.redirect('/admin/home');
-        }else if(req.session.user1) {
-            res.redirect("/home");
         }
         else{
             next();
