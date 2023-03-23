@@ -118,7 +118,8 @@ const detailView = async(req,res)=>{
     
  
 // }
-
+let walletAmount=0;
+let totalWallet;
 const returnOrder = async (req,res)=>{
   try {
 
@@ -129,6 +130,23 @@ const returnOrder = async (req,res)=>{
    
    if(user){
     const  orderData= await Order.findById({_id:id})
+      walletAmount=orderData.products.totalPrice
+      const userData=await User.findById({_id:user})
+     totalWallet=userData.wallet
+     console.log(totalWallet);
+     console.log(walletAmount);
+      const totalWalletAmount=totalWallet+walletAmount
+     console.log(totalWalletAmount);
+
+
+      // console.log(typeof(totalWallet));
+
+      // console.log("total==="+totalWallet);
+
+      // console.log(user);
+      await User.updateOne({_id:user},{$set:{wallet:totalWalletAmount}})
+      const userDetails = await User.findOne({_id:user})
+      console.log("userData===="+userDetails);
     const productData=await Product.find()
     for(let key of orderData.products.item){
       for(let prod of productData){

@@ -223,12 +223,19 @@ const verifyLogin = async (req, res) => {
 
 const loadHome = async (req, res) => {
     try {
+        const id=req.session.user_id
+        console.log("userData===="+id);
+
         const products = await product.find({isAvilable:1})
         const bannerData=await Banner.find({is_active:1})
+        const userData=await User.findOne({_id:id})
+        
+        
         if(req.session.user1){sess = true} else sess = false;
             res.render('home',{users : sess,
                 products:products,
-                banner:bannerData
+                banner:bannerData,
+                
             })
     }
     catch (error) {
@@ -419,11 +426,13 @@ const userProfile =async(req,res)=>{
         const userData = await User.findById({_id: userSession.user_id})
         // console.log(userData);
         // const orderData=await Orders.find({userId:userSession.user_Id})
+        console.log("wallet amount==="+userData.wallet);
+        const walletAmount=userData.wallet
         const orderData = await Orders.find({ userId: userSession.user_id })
         const addressData =await Address.find({userId: userSession.user_id})
        
 
-        res.render('userProfile',{user:userData,userAddress:addressData, userOrders:orderData})
+        res.render('userProfile',{user:userData,userAddress:addressData, userOrders:orderData,wallet:walletAmount})
     }catch(error){
         console.log(error.message);
     }
@@ -441,7 +450,11 @@ const loadCheckout =async(req,res)=>{
             const selectAddress = await Address.findOne({_id:id});
             const coupon =await Offer.find()
             
-            res.render('checkout',{id:userSession.user_id,cartProducts:completeUser.cart,addSelect:selectAddress,userAddress:addressData})
+            const walletTotal=userData.wallet
+            console.log("wallet dataa====="+walletTotal);
+
+            
+            res.render('checkout',{id:userSession.user_id,cartProducts:completeUser.cart,addSelect:selectAddress,userAddress:addressData,walletTotal:walletTotal})
         }else{
             res.render('checkout',{id:userSession.user_id})
         }
