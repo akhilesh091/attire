@@ -21,6 +21,10 @@ const adminRoute = require("./routes/adminRoute");
 
 app.use("/admin", adminRoute);
 
+app.get('*',function(req,res){
+  res.status(404).render('404.ejs')
+})
+
 
 app.listen(3000, function () {
   console.log("server is running at 3000");
