@@ -108,7 +108,7 @@ vertical-gap">
                 <td>Discount Amount: <strong class="discountAmount text-dark"></strong></td>
               </tr>
               <tr>
-                <td>To pay:<strong class="totalCart"></strong></td>
+                <td>To pay:<strong id="totalCart" class="totalCart"></strong></td>
           </tr>
             </tbody>
             </table>
@@ -126,7 +126,7 @@ vertical-gap">
       <div class="card text-white bg-secondary mb-3 mt-4" style="max-width: 18rem;">
         <div class="card-header fs-6">Wallet Balance</div>
         <div class="card-body">
-          <input type="checkbox" name="wallet" id="">
+          <input type="checkbox" name="wallet" onchange="applyWal('<%-walletTotal%>')">
           <h5 class="card-title"><%-walletTotal%></h5>
           <p>pay up on from your wallet</p>
         </div>
@@ -396,6 +396,20 @@ ml-2">login</a>
           </div>
       </div>
       <script>
+        function applyWal(amt){
+          tot = parseInt('<%=cartProducts.totalPrice %>')
+          Tamt = parseInt(amt)
+          payable = tot-Tamt
+          console.log(tot-Tamt);
+          console.log(typeof(Tamt));
+          if(tot <=amt){
+            document.getElementById('totalCart').innerHTML =' ₹ '+ 0
+          }else{
+            console.log(tot-amt);
+            document.getElementById('totalCart').innerHTML =' ₹ '+ payable
+          }
+        }
+
         $('#coupon-btn').click(function(e){
           e.preventDefault();
           const coupon = $('#coupon-input').val()

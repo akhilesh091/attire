@@ -428,7 +428,7 @@ const userProfile =async(req,res)=>{
         // const orderData=await Orders.find({userId:userSession.user_Id})
         console.log("wallet amount==="+userData.wallet);
         const walletAmount=userData.wallet
-        const orderData = await Orders.find({ userId: userSession.user_id })
+        const orderData = await Orders.find({ userId: userSession.user_id }).sort({$natural:-1})
         const addressData =await Address.find({userId: userSession.user_id})
        
 
