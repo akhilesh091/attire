@@ -1,4 +1,4 @@
-I have developed an ecommerce website using HTML, CSS, Bootstrap, JavaScript, Node.js, Express, and MongoDB. The website incorporates several essential features to enhance the user experience and streamline the shopping process.
+I have developed an ecommerce website using HTML, CSS, Bootstrap, JavaScript, Node.js, Express,Ejs and MongoDB. The website incorporates several essential features to enhance the user experience and streamline the shopping process.
 
 Users can log in securely using OTP verification, ensuring a convenient and reliable login process. The website also includes image zoom and cropping functionalities, allowing customers to view products in detail and customize their appearance.
 
