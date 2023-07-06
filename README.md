@@ -6,5 +6,6 @@ To enhance security and convenience, a forgot password feature is implemented, e
 
 To improve product browsing, category-wise sorting is implemented, allowing users to easily find products within their desired category. Additionally, the website supports the application of coupons, enabling customers to avail of discounts and promotional offers during checkout.
 
-Customers can add multiple addresses to their profile, facilitating flexible shipping options.
+Customers can add multiple addresses to their profile, facilitating flexible shipping options.users can cancel orders within 1 to 4 days after delivery if needed.
+After receiving their orders, customers can provide valuable feedback by adding reviews to the respective products, enhancing the credibility and engagement of the platform
 
